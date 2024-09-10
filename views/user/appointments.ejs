@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserInfo</title>
+    <%- include('../includes/head.ejs') %> <!-- Include head.ejs for meta tags and common styles -->
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %> <!-- Include navigation.ejs for navigation bar -->
+
+    <main>
+        <h1>User Information</h1>
+        <form action="/user/add-appointment" method="POST">
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required />
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required />
+            </div>
+            <div class="form-control">
+                <label for="phone">Phone No</label>
+                <input type="tel" name="phone" id="phone" required />
+            </div>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+
+        <ul>
+            <% for(let appointment of appointments) { %>
+            <li>
+                <%= appointment.username %> - <%= appointment.email %> - <%= appointment.phone %>
+                <form action="/user/edit-appointment" method="GET" style="display:inline;">
+                    <input type="hidden" name="appointmentId" value="<%= appointment.id %>">
+                    <button class="btn" type="submit">Edit</button>
+                </form>
+                <form action="/user/delete-appointment" method="POST" style="display: inline;">
+                    <input type="hidden" name="appointmentId" value="<%= appointment.id %>">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            </li>
+            <% } %>
+        </ul>
+    </main>
+
+    <%- include('../includes/end.ejs') %> <!-- Include end.ejs for closing tags and common scripts -->
+</body>
+</html>

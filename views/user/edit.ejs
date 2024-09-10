@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit UserInfo</title>
+    <%- include('../includes/head.ejs') %> <!-- Include head.ejs for meta tags and common styles -->
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %> <!-- Include navigation.ejs for the navigation bar -->
+
+    <main>
+        <div class="container">
+            <h1>Edit User Information</h1>
+            <form action="/user/edit-appointment" method="POST">
+                <input type="hidden" name="id" value="<%= appointment.id %>">
+                <div class="form-control">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" value="<%= appointment.username %>" required />
+                </div>
+                <div class="form-control">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" value="<%= appointment.email %>" required />
+                </div>
+                <div class="form-control">
+                    <label for="phone">Phone No</label>
+                    <input type="tel" name="phone" id="phone" value="<%= appointment.phone %>" required />
+                </div>
+                <button class="btn" type="submit">Save Changes</button>
+            </form>
+        </div>
+    </main>
+
+    <%- include('../includes/end.ejs') %> <!-- Include end.ejs for closing tags and common scripts -->
+</body>
+</html>

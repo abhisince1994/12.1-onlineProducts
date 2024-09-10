@@ -4,6 +4,9 @@
     <nav class="main-header__nav">
         <ul class="main-header__item-list">
             <li class="main-header__item">
+                <a class="<%= path === '/appointments' ? 'active' : '' %>" href="/user/appointments">You</a>
+            </li>            
+            <li class="main-header__item">
                 <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
             </li>
             <li class="main-header__item">
@@ -16,12 +19,10 @@
                 <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product
-                </a>
+                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products
-                </a>
+                <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products</a>
             </li>
         </ul>
     </nav>
@@ -29,6 +30,9 @@
 
 <nav class="mobile-nav">
         <ul class="mobile-nav__item-list">
+            <li class="mobile-nav__item">
+                <a class="<%= path === '/appointments' ? 'active' : '' %>" href="/user/appointments">You</a>
+            </li>            
                 <li class="mobile-nav__item">
                     <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
                 </li>
